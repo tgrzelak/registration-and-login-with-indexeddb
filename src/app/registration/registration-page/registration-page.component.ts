@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
-import { FormConfig } from 'src/app/shared/_models/form-config.model';
 import { RegistrationFormBuilderService } from '../_services/registration-form-builder/registration-form-builder.service';
 import { RegistrationService } from '../_services/registration-service/registration.service';
+import { REGISTRATION_FORM } from './../../shared/_consts/registration-form.enum';
+import { FormConfig } from './../../shared/_models/form-config.model';
 import { RegistrationModel } from './../_models/registration.model';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidationPatterns } from 'src/app/shared/validation/validation-patterns.const';
-import { ValidationProperties } from 'src/app/shared/validation/validation-properties.const';
-import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
-import { FormConfig } from 'src/app/shared/_models/form-config.model';
+import { ValidationPatterns } from './../../../shared/validation/validation-patterns.const';
+import { ValidationProperties } from './../../../shared/validation/validation-properties.const';
+import { REGISTRATION_FORM } from './../../../shared/_consts/registration-form.enum';
+import { FormConfig } from './../../../shared/_models/form-config.model';
 
 @Injectable({
   providedIn: 'root'

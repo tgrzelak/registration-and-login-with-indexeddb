@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { LOGIN_ROUTE } from 'src/app/login/_consts/login-routes.const';
 import { DB } from '../../_consts/indexeddb.const';
+import { LOGIN_ROUTE } from './../../../login/_consts/login-routes.const';
 
 @Injectable({
   providedIn: 'root'

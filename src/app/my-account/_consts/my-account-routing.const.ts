@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { MyAccountComponent } from '../my-account/my-account.component';
-import { AuthGuard } from 'src/app/shared/_guards/auth-guard/auth-guard.service';
+import { AuthGuard } from './../../shared/_guards/auth-guard/auth-guard.service';
 
 export const MY_ACCOUNT_ROUTING: Route[] = [
   {

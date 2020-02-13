@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { DB } from 'src/app/shared/_consts/indexeddb.const';
+import { DB } from './../../../shared/_consts/indexeddb.const';
 import { LoginModel } from '../../_models/login.model';
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DB } from 'src/app/shared/_consts/indexeddb.const';
+import { DB } from './../../shared/_consts/indexeddb.const';
 
 @Component({
   selector: 'app-my-account',

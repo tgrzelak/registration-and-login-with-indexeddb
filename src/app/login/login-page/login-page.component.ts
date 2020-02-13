@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
-import { FormConfig } from 'src/app/shared/_models/form-config.model';
+import { REGISTRATION_FORM } from './../../shared/_consts/registration-form.enum';
+import { FormConfig } from './../../shared/_models/form-config.model';
 import { LoginModel } from '../_models/login.model';
 import { LoginFormBuilderService } from '../_services/login-form-builder/login-form-builder.service';
 import { LoginService } from '../_services/login-service/login.service';

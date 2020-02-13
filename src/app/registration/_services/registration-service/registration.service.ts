@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationModel } from '../../_models/registration.model';
-import { DB } from 'src/app/shared/_consts/indexeddb.const';
-import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
-import { Router } from '@angular/router';
-import { LOGIN_ROUTE } from 'src/app/login/_consts/login-routes.const';
+import { LOGIN_ROUTE } from './../../../login/_consts/login-routes.const';
+import { DB } from './../../../shared/_consts/indexeddb.const';
+import { REGISTRATION_FORM } from './../../../shared/_consts/registration-form.enum';
 
 @Injectable({
   providedIn: 'root'
