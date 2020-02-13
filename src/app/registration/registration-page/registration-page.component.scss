@@ -3,5 +3,7 @@
     display: inline-grid;
 }
 .flex-container {
-  height: auto;
+  @media (max-width: 576px) {
+    height: auto;
+  }
 }
