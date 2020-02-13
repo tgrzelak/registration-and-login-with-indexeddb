@@ -25,18 +25,18 @@ export class LoginService {
       const db = request.result;
       const tx = db.transaction(DB.OBJECT_STORE, 'readwrite');
       const store = tx.objectStore(DB.OBJECT_STORE);
-      const loginRequest = store.get(user.login);
+      const emailRequest = store.get(user.email);
 
-      loginRequest.onsuccess = () => {
-        if (loginRequest.result === undefined) {
-          this.toastr.error(`Please check your login`, `User not exist`);
+      emailRequest.onsuccess = () => {
+        if (emailRequest.result === undefined) {
+          this.toastr.error(`Please check your email`, `User not exist`);
           return;
         }
-        if (user.password === loginRequest.result.password) {
+        if (user.password === emailRequest.result.password) {
           this.router.navigateByUrl('my-account');
-          localStorage.setItem('user', user.login);
-          loginRequest.result.isLogged = true;
-          store.put(loginRequest.result);
+          localStorage.setItem('user', user.email);
+          emailRequest.result.isLogged = true;
+          store.put(emailRequest.result);
         } else {
           this.toastr.warning(`Please check your password`, `Password is incorrect`);
         }

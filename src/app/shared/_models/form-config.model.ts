@@ -11,7 +11,6 @@ export interface FormControls {
   placeholder: string;
   type: string;
   formControlName: string;
-  required: boolean;
   formErrors: FormInputError[];
 }
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginFormBuilderService } from '../_services/login-form-builder/login-form-builder.service';
+import { ToastrService } from 'ngx-toastr';
+import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
 import { FormConfig } from 'src/app/shared/_models/form-config.model';
 import { LoginModel } from '../_models/login.model';
+import { LoginFormBuilderService } from '../_services/login-form-builder/login-form-builder.service';
 import { LoginService } from '../_services/login-service/login.service';
-import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
     this.config.form.markAllAsTouched();
     if (this.config.form.valid) {
       const newUser: LoginModel = {
-        login: this.config.form.get(REGISTRATION_FORM.login).value,
+        email: this.config.form.get(REGISTRATION_FORM.email).value,
         password: this.config.form.get(REGISTRATION_FORM.password).value,
       };
       this.loginService.login(newUser);

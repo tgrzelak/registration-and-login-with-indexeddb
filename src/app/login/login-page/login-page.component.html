@@ -1,5 +1,5 @@
 <div class="flex-container">
-  <form class="form" [formGroup]="config.form">
+  <form class="form" [formGroup]="config.form" (ngSubmit)="onLogin()">
     <ng-container *ngFor="let control of config.controls">
 
       <ng-container [ngSwitch]="control.type">
@@ -26,7 +26,7 @@
     </ng-container>
 
     <div class="form__buttons">
-      <button class="submit-btn" mat-raised-button color="primary" type="submit" (click)="onLogin()" [disabled]="!config.form.valid">{{config.buttonLabel}}</button>
+      <button class="submit-btn" mat-raised-button color="primary" type="submit" [disabled]="!config.form.valid">{{config.buttonLabel}}</button>
       <a class="redirect-btn" routerLink="/registration">
         <span >Register</span>
       </a>

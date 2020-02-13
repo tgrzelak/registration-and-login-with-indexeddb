@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidationPatterns } from 'src/app/shared/validation/validation-patterns.const';
 import { ValidationProperties } from 'src/app/shared/validation/validation-properties.const';
-import { FormConfig } from 'src/app/shared/_models/form-config.model';
 import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum';
+import { FormConfig } from 'src/app/shared/_models/form-config.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,22 +22,25 @@ export class LoginFormBuilderService {
   private createConfig(): FormConfig {
     return {
       form: this.createForm(),
-      buttonLabel: 'Login',
+      buttonLabel: 'Email',
       controls: [
         {
-          label: 'Login',
-          placeholder: 'Please put your login',
+          label: 'Email',
+          placeholder: 'Please put your email',
           type: 'text',
-          required: true,
-          formControlName: REGISTRATION_FORM.login,
+          formControlName: REGISTRATION_FORM.email,
           formErrors: [
             {
               type: ['required'],
-              label: 'Login is required'
+              label: 'Email is required'
             },
             {
               type: ['maxlength'],
               label: 'Value is too long'
+            },
+            {
+              type: ['pattern'],
+              label: 'Please enter a valid email address'
             }
           ]
         },
@@ -44,7 +48,6 @@ export class LoginFormBuilderService {
           label: 'Password',
           placeholder: 'Please put your password',
           type: 'password',
-          required: true,
           formControlName: REGISTRATION_FORM.password,
           formErrors: [
             {
@@ -71,9 +74,10 @@ export class LoginFormBuilderService {
 
   protected createForm(): FormGroup {
     return this.formBuilder.group({
-      login: new FormControl(null, [
+      email: new FormControl(null, [
         Validators.required,
-        Validators.maxLength(40)
+        Validators.maxLength(80),
+        Validators.pattern(ValidationPatterns.email)
       ]),
       password: new FormControl(null,
         ValidationProperties.passwordValidation

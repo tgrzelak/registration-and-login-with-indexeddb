@@ -10,6 +10,7 @@ import { REGISTRATION_FORM } from 'src/app/shared/_consts/registration-form.enum
   providedIn: 'root'
 })
 export class RegistrationFormBuilderService {
+
   constructor(
     private formBuilder: FormBuilder
   ) { }
@@ -28,7 +29,6 @@ export class RegistrationFormBuilderService {
           label: 'First Name',
           placeholder: 'Please put your first name',
           type: 'text',
-          required: true,
           formControlName: REGISTRATION_FORM.firstName,
           formErrors: [
             {
@@ -45,7 +45,6 @@ export class RegistrationFormBuilderService {
           label: 'Last Name',
           placeholder: 'Please put your last name',
           type: 'text',
-          required: true,
           formControlName: REGISTRATION_FORM.lastName,
           formErrors: [
             {
@@ -59,27 +58,9 @@ export class RegistrationFormBuilderService {
           ]
         },
         {
-          label: 'Login',
-          placeholder: 'Please put your login',
-          type: 'text',
-          required: true,
-          formControlName: REGISTRATION_FORM.login,
-          formErrors: [
-            {
-              type: ['required'],
-              label: 'Login is required'
-            },
-            {
-              type: ['maxlength'],
-              label: 'Value is too long'
-            }
-          ]
-        },
-        {
           label: 'Email',
           placeholder: 'Please put your email',
           type: 'text',
-          required: true,
           formControlName: REGISTRATION_FORM.email,
           formErrors: [
             {
@@ -100,7 +81,6 @@ export class RegistrationFormBuilderService {
           label: 'Password',
           placeholder: 'Please put your password',
           type: 'password',
-          required: true,
           formControlName: REGISTRATION_FORM.password,
           formErrors: [
             {
@@ -125,7 +105,6 @@ export class RegistrationFormBuilderService {
           label: 'Confirm Password',
           placeholder: 'Please confirm your password',
           type: 'password',
-          required: true,
           formControlName: REGISTRATION_FORM.confirmPassword,
           formErrors: [
             {
@@ -149,10 +128,6 @@ export class RegistrationFormBuilderService {
         Validators.maxLength(40)
       ]),
       lastName: new FormControl(null, [
-        Validators.required,
-        Validators.maxLength(40)
-      ]),
-      login: new FormControl(null, [
         Validators.required,
         Validators.maxLength(40)
       ]),
