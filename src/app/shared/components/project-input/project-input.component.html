@@ -1,0 +1,16 @@
+<mat-form-field class="project-input" [formGroup]="formGroup">
+  <mat-label>{{label}}</mat-label>
+
+    <input matInput [type]="hide && type === 'password' ? 'password' : 'text'" [formControlName]="formControlName" [placeholder]="placeholder">
+    <button *ngIf="type === 'password'" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" type="button"
+      [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+
+  <mat-error *ngFor="let error of errorList">
+    <mat-error *ngIf="onHasOneOfErrors(error.type)">
+      {{error.label}}
+    </mat-error>
+  </mat-error>
+</mat-form-field>
+

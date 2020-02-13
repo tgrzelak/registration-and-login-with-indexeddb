@@ -1,0 +1,35 @@
+<div class="flex-container">
+  <form class="form" [formGroup]="config.form">
+    <ng-container *ngFor="let control of config.controls">
+
+      <ng-container [ngSwitch]="control.type">
+        <app-project-input
+          *ngSwitchCase="'text'"
+          [label]="control.label"
+          [placeholder]="control.placeholder"
+          [errorList]="control.formErrors"
+          [formControlName]="control.formControlName"
+          [formGroup]="config.form"
+          [type]="control.type">
+        </app-project-input>
+
+        <app-project-input
+          *ngSwitchCase="'password'"
+          [label]="control.label"
+          [placeholder]="control.placeholder"
+          [errorList]="control.formErrors"
+          [formControlName]="control.formControlName"
+          [formGroup]="config.form"
+          [type]="control.type">
+        </app-project-input>
+      </ng-container>
+    </ng-container>
+
+    <div class="form__buttons">
+      <button class="submit-btn" mat-raised-button color="primary" type="submit" (click)="onLogin()" [disabled]="!config.form.valid">{{config.buttonLabel}}</button>
+      <a class="redirect-btn" routerLink="/registration">
+        <span >Register</span>
+      </a>
+    </div>
+  </form>
+</div>

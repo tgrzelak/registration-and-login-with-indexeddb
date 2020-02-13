@@ -1,0 +1,6 @@
+.project-input {
+  min-width: 300px;
+}
+::ng-deep mat-form-field {
+  display: inline !important;
+}

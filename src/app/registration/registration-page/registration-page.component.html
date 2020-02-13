@@ -1,0 +1,61 @@
+<div class="flex-container">
+  <form class="form" [formGroup]="config.form" (submit)="onRegister()">
+    <ng-container *ngFor="let control of config.controls">
+
+      <ng-container [ngSwitch]="control.type">
+        <app-project-input *ngSwitchCase="'text'" [label]="control.label" [placeholder]="control.placeholder"
+          [errorList]="control.formErrors" [formControlName]="control.formControlName" [formGroup]="config.form"
+          [type]="control.type">
+        </app-project-input>
+
+        <app-project-input *ngSwitchCase="'password'" [label]="control.label" [placeholder]="control.placeholder"
+          [errorList]="control.formErrors" [formControlName]="control.formControlName" [formGroup]="config.form"
+          [type]="control.type">
+        </app-project-input>
+      </ng-container>
+
+
+    </ng-container>
+
+    <section class="password-hint">
+      <label [ngClass]="config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('minlength') ? 'cancel' : 'check_circle' }}
+        </i> Password must be at least 8 characters
+      </label>
+      <label [ngClass]="config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasDigit')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasDigit') ? 'cancel' : 'check_circle' }}
+        </i> Password must contain at least 1 digit
+      </label>
+      <label [ngClass]="config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasCapitalCase') ? 'cancel' : 'check_circle' }}
+        </i> Password must contain at least 1 capital case
+      </label>
+      <label [ngClass]="config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasLowerCase')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasLowerCase') ? 'cancel' : 'check_circle' }}
+        </i> Password must contain at least 1 lower case
+      </label>
+      <label [ngClass]="config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasSpecialCharacter')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['password'].hasError('required') || config.form.controls['password'].hasError('hasSpecialCharacter') ? 'cancel' : 'check_circle' }}
+        </i> Password must contain at least 1 special character
+      </label>
+      <label [ngClass]="config.form.controls['confirmPassword'].hasError('required') || config.form.controls['confirmPassword'].hasError('NoPasswordMatch')  ? 'text-danger' : 'text-success'">
+        <i class="material-icons">
+          {{ config.form.controls['confirmPassword'].hasError('required') || config.form.controls['confirmPassword'].hasError('NoPasswordMatch') ? 'cancel' : 'check_circle' }}
+        </i> Passwords must match
+      </label>
+    </section>
+
+
+    <div class="form__buttons">
+      <button class="submit-btn" mat-raised-button color="primary" type="submit" [disabled]="!config.form.valid">{{config.buttonLabel}}</button>
+      <a class="redirect-btn" routerLink="/login">
+        <span>Login</span>
+      </a>
+    </div>
+  </form>
+</div>
