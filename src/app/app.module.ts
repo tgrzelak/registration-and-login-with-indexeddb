@@ -25,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       closeButton: true,
+      timeOut: 5000,
     })
   ],
   bootstrap: [AppComponent]

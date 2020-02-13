@@ -28,7 +28,7 @@ export class LoginService {
         indexedDB.deleteDatabase(DB.NAME);
         setTimeout(() => {
           window.location.reload();
-        }, 3000);
+        }, 5000);
       } else {
         const tx = db.transaction(DB.OBJECT_STORE, 'readwrite');
         const store = tx.objectStore(DB.OBJECT_STORE);
